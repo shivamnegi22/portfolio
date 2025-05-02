@@ -1289,8 +1289,8 @@ automate processes,and enhance project efficiency
           <div class="col-lg-6">
             <h3 class="st-contact-title">Just say Hello</h3>
             <div id="st-alert"></div>
-            <form
-              action="#"
+            <!-- <form
+              action="https://formspree.io/f/yourFormID"
               method="POST"
               class="st-contact-form"
               id="contact-form"
@@ -1340,7 +1340,54 @@ automate processes,and enhance project efficiency
               >
                 Send message
               </button>
-            </form>
+            </form> -->
+            <form
+  action="https://formspree.io/f/manoeewz"
+  method="POST"
+  class="st-contact-form"
+  id="contact-form"
+>
+  <div class="st-form-field">
+    <input
+      type="text"
+      name="name"
+      placeholder="Your Name"
+      required
+    />
+  </div>
+  <div class="st-form-field">
+    <input
+      type="email"
+      name="email"
+      placeholder="Your Email"
+      required
+    />
+  </div>
+  <div class="st-form-field">
+    <input
+      type="text"
+      name="subject"
+      placeholder="Your Subject"
+      required
+    />
+  </div>
+  <div class="st-form-field">
+    <textarea
+      name="message"
+      cols="30"
+      rows="10"
+      placeholder="Your Message"
+      required
+    ></textarea>
+  </div>
+  <button
+    class="st-btn st-style1 st-color1"
+    type="submit"
+  >
+    Send message
+  </button>
+</form>
+
           </div>
           <div class="st-height-b0 st-height-lg-b30"></div>
 
@@ -1415,11 +1462,7 @@ automate processes,and enhance project efficiency
       <div class="container">
         <div class="st-copyright-wrap text-center">
           <div class="st-copyright-text">
-<<<<<<< HEAD
-            © 2025. Designed by Shivam Negi. All right reserved.
-=======
             © 2025. Designed by SHIVAM NEGI. All right reserved.
->>>>>>> 24601e9 (basic changes)
           </div>
         </div>
       </div>
@@ -1449,6 +1492,26 @@ automate processes,and enhance project efficiency
       }
     
       setCurrentDate();
+    </script>
+    <script>
+      const form = document.getElementById("contact-form");
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: { Accept: "application/json" },
+        });
+    
+        const alertDiv = document.getElementById("st-alert");
+        if (response.ok) {
+          alertDiv.innerHTML = "<p style='color: limegreen;'>Thanks for your message!</p>";
+          form.reset();
+        } else {
+          alertDiv.innerHTML = "<p style='color: red;'>Something went wrong. Please try again.</p>";
+        }
+      });
     </script>
     
   </body>
